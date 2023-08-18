@@ -2,7 +2,7 @@ package models
 
 type User struct {
 	Id              int    `json:"id" gorm:"primaryKey"`
-	Name            string `json:"name"`
+	UserName        string `json:"user_name"`
 	Avater          string `json:"avater"`
 	BackgroundImage string `json:"background_image"`
 	Signature       string `json:"signature"`
@@ -13,4 +13,15 @@ type User struct {
 
 func (User) TableName() string {
 	return "user"
+}
+
+type Relation struct {
+	Id         int `json:"id" gorm:"primaryKey"`
+	FollowerId int `json:"follower_id"`
+	UserId     int `json:"user_id"`
+	FriendFlag int `json:"friend_flag"`
+}
+
+func (Relation) TableName() string {
+	return "relation"
 }

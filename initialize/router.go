@@ -17,8 +17,8 @@ func Routers() *gin.Engine {
 	ApiGroup := Router.Group("/douyin/")
 
 	//路由分组
-	router.BaseRouter(ApiGroup)
 	router.UserRouter(ApiGroup)
+	router.RelationRouter(ApiGroup)
 
 	//添加中间件（全局中间件）
 	Router.Use(middlewares.Ginlogger(), middlewares.GinRecovery(true))
